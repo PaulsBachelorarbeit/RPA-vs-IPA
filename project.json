@@ -1,0 +1,67 @@
+{
+  "name": "RPA_IPA_Experiment",
+  "projectId": "51ed8f13-1389-4da9-a08c-7db0f1224cfe",
+  "description": "Leerer Prozess",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.DocumentProcessing.Contracts": "[1.30.1-preview]",
+    "UiPath.DocumentUnderstanding.Activities": "[2.15.1-preview]",
+    "UiPath.DocumentUnderstanding.ML.Activities": "[1.33.0]",
+    "UiPath.Excel.Activities": "[3.2.0-preview]",
+    "UiPath.GSuite.Activities": "[3.2.10]",
+    "UiPath.IntegrationService.Activities": "[1.15.0]",
+    "UiPath.IntelligentOCR.Activities": "[6.24.0]",
+    "UiPath.PDF.Activities": "[3.22.1]",
+    "UiPath.System.Activities": "[25.4.4]",
+    "UiPath.UIAutomation.Activities": "[25.10.12]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "25.0.167.0",
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "workflowSerialization": "NewtonsoftJson",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "saveToCloud": false
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "ca6f4666-78a2-4c80-ae9b-5be292aa4dbb",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Windows"
+}
