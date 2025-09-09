@@ -1,0 +1,881 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="IPA_InvoiceProcessing1" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="IPA_InvoiceProcessing1_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/intelligentocr" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:p2="http://schemas.uipath.com/workflow/activities/intelligentocr/extraction" xmlns:p3="http://schemas.uipath.com/workflow/activities/documentunderstanding-ml" xmlns:p4="http://schemas.uipath.com/workflow/activities/document-processing-contracts/extraction" xmlns:p5="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:p6="http://schemas.uipath.com/workflow/activities/document-processing-contracts/dom" xmlns:p7="http://schemas.uipath.com/workflow/activities/document-processing-contracts/taxonomy" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:sd2="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Taxonomy</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Results</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.Digitization</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Dom</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.TaxonomyManagement</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities.DocumentClassification</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Classification</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts</x:String>
+      <x:String>UiPath.Platform</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.DocumentClassification</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Training</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.Training</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.DataExtraction</x:String>
+      <x:String>UiPath.DU.Shared.Utils</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.DataExtraction</x:String>
+      <x:String>UiPath.SmartData.PositionBasedExtraction.Storage</x:String>
+      <x:String>UiPath.DU.Shared.Actions</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.ValidationStation</x:String>
+      <x:String>UiPath.GSuite.Activities.Drive.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.GSuite.Drive.Models</x:String>
+      <x:String>UiPath.GSuite.Activities.Sheets.Enums</x:String>
+      <x:String>UiPath.GSuite.Activities.Models</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.DocumentUnderstanding.ML.Activities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Globalization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentProcessing.Contracts</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.ML.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>UiPath.SmartData.PositionBasedExtraction</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.ML.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="IPA_InvoiceProcessing1" sap:VirtualizedContainerService.HintSize="847,9562" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="s:DateTime" Name="tmpInvoiceDate" />
+      <Variable x:TypeArguments="x:Double" Name="tmpAmount" />
+      <Variable x:TypeArguments="x:String" Name="tmpInvoiceNumber" />
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="hasBusinessError" />
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="isSuccessful" />
+      <Variable x:TypeArguments="x:String" Name="ocrApiKey" />
+      <Variable x:TypeArguments="sd2:DataTable" Name="allLineItems" />
+      <Variable x:TypeArguments="sd2:DataTable" Name="allFields" />
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="needsValidation" />
+      <Variable x:TypeArguments="x:Double" Default="0" Name="confTotal" />
+      <Variable x:TypeArguments="x:Double" Default="0" Name="confInvoiceNumber" />
+      <Variable x:TypeArguments="p5:ExtractionResult" Name="extractionResults" />
+      <Variable x:TypeArguments="x:String" Name="ocrText" />
+      <Variable x:TypeArguments="p6:Document" Name="documentObject" />
+      <Variable x:TypeArguments="p7:DocumentTaxonomy" Name="taxonomy" />
+      <Variable x:TypeArguments="sd2:DataTable" Name="dt_Log" />
+      <Variable x:TypeArguments="x:String" Name="exceptionMessage">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:Double" Default="[0]" Name="reworkSeconds" />
+      <Variable x:TypeArguments="x:Double" Default="0" Name="durationSeconds" />
+      <Variable x:TypeArguments="s:DateTime" Name="endTime" />
+      <Variable x:TypeArguments="s:DateTime" Name="startTime" />
+      <Variable x:TypeArguments="s:DateTime" Name="invoiceDate" />
+      <Variable x:TypeArguments="x:Double" Name="amount" />
+      <Variable x:TypeArguments="x:String" Name="invoiceNumber" />
+      <Variable x:TypeArguments="x:String" Name="pdfText" />
+      <Variable x:TypeArguments="x:String" Default="Logs\processing_log.xlsx" Name="logPath" />
+      <Variable x:TypeArguments="x:String" Default="C:\Users\Paul\Documents\UiPath\RPA_IPA_Experiment\Data\Input\0%_Unstructured" Name="inputFolder" />
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="isSTP" />
+      <Variable x:TypeArguments="p5:ExtractionResult" Name="validatedResults" />
+      <Variable x:TypeArguments="s:DateTime" Name="valStart" />
+      <Variable x:TypeArguments="s:DateTime" Name="valEnd" />
+      <Variable x:TypeArguments="x:String" Name="amountProbe" />
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="forceValidation" />
+      <Variable x:TypeArguments="x:String" Name="amountFormatted" />
+      <Variable x:TypeArguments="x:String" Name="rawAmount" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap:VirtualizedContainerService.HintSize="644,9539" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign sap:VirtualizedContainerService.HintSize="610,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[inputFolder]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[Path.Combine(Directory.GetCurrentDirectory(), "Data", "Input", "60%_Unstructured")]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="610,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[logPath]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">Logs\ipa_log.xlsx</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:BuildDataTable DataTable="[dt_Log]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="610,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Dateiname&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Startzeit&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Endzeit&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Bearbeitungszeit&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Nachbearbeitungszeit&quot; msdata:Caption=&quot;&quot; type=&quot;xs:double&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Rechnungsnummer&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Betrag&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Datum&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Erfolgreich&quot; msdata:Caption=&quot;&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Fehlerhaft&quot; msdata:Caption=&quot;&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;STP&quot; msdata:Caption=&quot;&quot; type=&quot;xs:boolean&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Exception&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Verfahren&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName /&gt;&#xA;&lt;/NewDataSet&gt;">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:BuildDataTable>
+      <ui:ForEachFileX DisplayName="For Each File In Folder" Filter="*.pdf" Folder="[inputFolder]" sap:VirtualizedContainerService.HintSize="610,8997" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+        <ui:ForEachFileX.Body>
+          <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
+            <ActivityAction.Argument1>
+              <DelegateInArgument x:TypeArguments="si:FileInfo" Name="CurrentFile" />
+            </ActivityAction.Argument1>
+            <ActivityAction.Argument2>
+              <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+            </ActivityAction.Argument2>
+            <Sequence DisplayName="Ausführen" sap:VirtualizedContainerService.HintSize="576,8707" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap:VirtualizedContainerService.HintSize="542,114" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="s:DateTime">[startTime]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="s:DateTime">[Now]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="542,114" sap2010:WorkflowViewState.IdRef="Assign_28">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[exceptionMessage]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="542,114" sap2010:WorkflowViewState.IdRef="Assign_29">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[invoiceNumber]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="542,114" sap2010:WorkflowViewState.IdRef="Assign_30">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Double">[amount]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Double">0</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="542,114" sap2010:WorkflowViewState.IdRef="Assign_31">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="s:DateTime">[invoiceDate]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="s:DateTime">[DateTime.MinValue]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="542,8077" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                <TryCatch.Try>
+                  <Sequence DisplayName="Versuchen" sap:VirtualizedContainerService.HintSize="540,7332" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="OCR_API" CacheStrategy="None" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="506,175" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+                      <ui:GetRobotAsset.Value>
+                        <OutArgument x:TypeArguments="x:String">[ocrApiKey]</OutArgument>
+                      </ui:GetRobotAsset.Value>
+                    </ui:GetRobotAsset>
+                    <p:DigitizeDocument ApplyOcrMigrated="True" ApplyOcrOnPdf="Auto" DegreeOfParallelism="-1" DetectCheckboxes="True" DisplayName="Digitize Document" DocumentObjectModel="[documentObject]" DocumentPath="[CurrentFile.FullName]" DocumentText="[ocrText]" ForceApplyOCR="False" sap:VirtualizedContainerService.HintSize="506,329" sap2010:WorkflowViewState.IdRef="DigitizeDocument_1">
+                      <p:DigitizeDocument.OCREngine>
+                        <ActivityFunc x:TypeArguments="sd:Image, x:String, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))" Argument1="{x:Reference __ReferenceID0}" Argument2="{x:Reference __ReferenceID1}">
+                          <p1:UiPathDocumentOCR Endpoint="{x:Null}" Output="{x:Null}" Text="{x:Null}" ApiKey="[ocrApiKey]" ComputeSkewAngle="False" DisplayName="UiPath Document OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="312,25" sap2010:WorkflowViewState.IdRef="UiPathDocumentOCR_1" Language="deu+eng" NoopExecution="False" Profile="None" Scale="1" Timeout="100000" UseLocalServer="False">
+                            <p1:UiPathDocumentOCR.Image>
+                              <InArgument x:TypeArguments="sd:Image">
+                                <DelegateArgumentValue x:TypeArguments="sd:Image" sap2010:WorkflowViewState.IdRef="DelegateArgumentValue1_1">
+                                  <DelegateInArgument x:TypeArguments="sd:Image" x:Name="__ReferenceID0" Name="Image" />
+                                </DelegateArgumentValue>
+                              </InArgument>
+                            </p1:UiPathDocumentOCR.Image>
+                            <p1:UiPathDocumentOCR.PredictionId>
+                              <InArgument x:TypeArguments="x:String">
+                                <DelegateArgumentValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="DelegateArgumentValue1_2">
+                                  <DelegateInArgument x:TypeArguments="x:String" x:Name="__ReferenceID1" Name="PredictionId" />
+                                </DelegateArgumentValue>
+                              </InArgument>
+                            </p1:UiPathDocumentOCR.PredictionId>
+                          </p1:UiPathDocumentOCR>
+                        </ActivityFunc>
+                      </p:DigitizeDocument.OCREngine>
+                    </p:DigitizeDocument>
+                    <p:LoadTaxonomy DisplayName="Load Taxonomy" sap:VirtualizedContainerService.HintSize="506,136" sap2010:WorkflowViewState.IdRef="LoadTaxonomy_1" Taxonomy="[taxonomy]" />
+                    <p2:DataExtractionScope AvailableAssetPaths="{x:Null}" ClassificationResult="{x:Null}" RuntimeAssetPath="{x:Null}" RuntimeTenantUrl="{x:Null}" ApplyGenerativeValidation="False" DisplayName="Data Extraction Scope" DocumentObjectModel="[documentObject]" DocumentPath="[CurrentFile.FullName]" DocumentText="[ocrText]" DocumentTypeId="Finance.IncomingInvoice.Invoice" ExtractionResult="[extractionResults]" FormatValuesIfPossible="True" GenerativeValidationConfidenceThreshold="99" sap:VirtualizedContainerService.HintSize="506,547" sap2010:WorkflowViewState.IdRef="DataExtractionScope_1" Taxonomy="[taxonomy]" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UIbaa6c120fd81413fb6511971412fcebd&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;Finance.IncomingInvoice.Invoice&quot;:{&quot;FieldMappings&quot;:{&quot;Finance.IncomingInvoice.Invoice.invoiceNumber&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Finance.IncomingInvoice.Invoice.invoiceNumber&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;invoice-no\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;Finance.IncomingInvoice.Invoice.invoiceDate&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Finance.IncomingInvoice.Invoice.invoiceDate&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;date\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;Finance.IncomingInvoice.Invoice.amount&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Finance.IncomingInvoice.Invoice.amount&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;total\&quot;&quot;,&quot;ShouldExtract&quot;:true}},&quot;ExtractorDocumentTypeId&quot;:&quot;\&quot;\&quot;&quot;}}}},&quot;ExtractorMinimumConfidence&quot;:{&quot;UIbaa6c120fd81413fb6511971412fcebd&quot;:&quot;0&quot;},&quot;ExtractorsAliases&quot;:{},&quot;DocumentTypeOptionsByExtractor&quot;:{&quot;UIbaa6c120fd81413fb6511971412fcebd&quot;:[{&quot;FieldId&quot;:&quot;&quot;,&quot;SubOptions&quot;:[{&quot;FieldId&quot;:&quot;name&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;vendor-addr&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;billing-name&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;billing-addr&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;shipping-addr&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;invoice-no&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;po-no&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;vendor-vat-no&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;date&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;tax&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;total&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;payment-terms&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;net-amount&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;due-date&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;discount&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;shipping-charges&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;payment-addr&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;billing-vat-no&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;shipping-date&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;vendor-email&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;bank-name&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;bank-account-no&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;iban&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;swift-code&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;bank-addr&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;bank-routing-no&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;tax-rate&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;shipping-method&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;currency&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;items&quot;,&quot;SubOptions&quot;:[{&quot;FieldId&quot;:&quot;description&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;quantity&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;unit-price&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;line-amount&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;item-po-no&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;line-no&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null},{&quot;FieldId&quot;:&quot;part-no&quot;,&quot;SubOptions&quot;:null,&quot;Metadata&quot;:null}],&quot;Metadata&quot;:null}],&quot;Metadata&quot;:[{&quot;Key&quot;:&quot;schema&quot;,&quot;Value&quot;:&quot;{\&quot;model\&quot;: \&quot;invoices\&quot;, \&quot;api_version\&quot;: \&quot;1.2\&quot;, \&quot;tags\&quot;: [{\&quot;name\&quot;: \&quot;name\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;vendor-addr\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;billing-name\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;billing-addr\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;shipping-addr\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;invoice-no\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;po-no\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;vendor-vat-no\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;date\&quot;, \&quot;type\&quot;: \&quot;date\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;tax\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;total\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;payment-terms\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;net-amount\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;due-date\&quot;, \&quot;type\&quot;: \&quot;date\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;discount\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;shipping-charges\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;payment-addr\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;description\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;section\&quot;: \&quot;items\&quot;, \&quot;table_id\&quot;: \&quot;\&quot;}, {\&quot;name\&quot;: \&quot;quantity\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;section\&quot;: \&quot;items\&quot;, \&quot;table_id\&quot;: \&quot;\&quot;}, {\&quot;name\&quot;: \&quot;unit-price\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;section\&quot;: \&quot;items\&quot;, \&quot;table_id\&quot;: \&quot;\&quot;}, {\&quot;name\&quot;: \&quot;line-amount\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;section\&quot;: \&quot;items\&quot;, \&quot;table_id\&quot;: \&quot;\&quot;}, {\&quot;name\&quot;: \&quot;item-po-no\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;section\&quot;: \&quot;items\&quot;, \&quot;table_id\&quot;: \&quot;\&quot;}, {\&quot;name\&quot;: \&quot;line-no\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;section\&quot;: \&quot;items\&quot;, \&quot;table_id\&quot;: \&quot;\&quot;}, {\&quot;name\&quot;: \&quot;part-no\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;section\&quot;: \&quot;items\&quot;, \&quot;table_id\&quot;: \&quot;\&quot;}, {\&quot;name\&quot;: \&quot;billing-vat-no\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;shipping-date\&quot;, \&quot;type\&quot;: \&quot;date\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;vendor-email\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;bank-name\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;bank-account-no\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;iban\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;swift-code\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;bank-addr\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;bank-routing-no\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;tax-rate\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;shipping-method\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;currency\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;is_classification_field\&quot;: true}], \&quot;schema\&quot;: {\&quot;extraction\&quot;: [{\&quot;name\&quot;: \&quot;name\&quot;, \&quot;display_name\&quot;: \&quot;Vendor Name\&quot;, \&quot;color\&quot;: \&quot;#ff0088\&quot;, \&quot;hotkey\&quot;: \&quot;n\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_line\&quot;: true, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;levenshtein\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;vendor-addr\&quot;, \&quot;display_name\&quot;: \&quot;Vendor Address\&quot;, \&quot;color\&quot;: \&quot;#65d642\&quot;, \&quot;hotkey\&quot;: \&quot;v\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_line\&quot;: true, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;levenshtein\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;billing-name\&quot;, \&quot;display_name\&quot;: \&quot;Billing Name\&quot;, \&quot;color\&quot;: \&quot;#7f5140\&quot;, \&quot;hotkey\&quot;: \&quot;b\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_line\&quot;: true, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;levenshtein\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;billing-addr\&quot;, \&quot;display_name\&quot;: \&quot;Billing Address\&quot;, \&quot;color\&quot;: \&quot;#ff8c40\&quot;, \&quot;hotkey\&quot;: \&quot;i\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_line\&quot;: true, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;levenshtein\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;shipping-addr\&quot;, \&quot;display_name\&quot;: \&quot;Shipping Address\&quot;, \&quot;color\&quot;: \&quot;#00bfb3\&quot;, \&quot;hotkey\&quot;: \&quot;s\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_line\&quot;: true, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;levenshtein\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;invoice-no\&quot;, \&quot;display_name\&quot;: \&quot;Invoice Number\&quot;, \&quot;color\&quot;: \&quot;#f2ff40\&quot;, \&quot;hotkey\&quot;: \&quot;o\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;po-no\&quot;, \&quot;display_name\&quot;: \&quot;Customer Purchase Order Number\&quot;, \&quot;color\&quot;: \&quot;#0099bf\&quot;, \&quot;hotkey\&quot;: \&quot;p\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_line\&quot;: true, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;vendor-vat-no\&quot;, \&quot;display_name\&quot;: \&quot;Vendor VAT Number\&quot;, \&quot;color\&quot;: \&quot;#40ff8c\&quot;, \&quot;hotkey\&quot;: \&quot;e\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;date\&quot;, \&quot;display_name\&quot;: \&quot;Invoice Date\&quot;, \&quot;color\&quot;: \&quot;#110040\&quot;, \&quot;hotkey\&quot;: \&quot;d\&quot;, \&quot;type\&quot;: \&quot;date\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;tax\&quot;, \&quot;display_name\&quot;: \&quot;Tax Amount\&quot;, \&quot;color\&quot;: \&quot;#eabfff\&quot;, \&quot;hotkey\&quot;: \&quot;t\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;total\&quot;, \&quot;display_name\&quot;: \&quot;Total Amount\&quot;, \&quot;color\&quot;: \&quot;#ee00ff\&quot;, \&quot;hotkey\&quot;: \&quot;a\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;largest_value\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;payment-terms\&quot;, \&quot;display_name\&quot;: \&quot;Payment Terms\&quot;, \&quot;color\&quot;: \&quot;#005580\&quot;, \&quot;hotkey\&quot;: \&quot;y\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_line\&quot;: true, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;levenshtein\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;net-amount\&quot;, \&quot;display_name\&quot;: \&quot;Net Amount\&quot;, \&quot;color\&quot;: \&quot;#7f2039\&quot;, \&quot;hotkey\&quot;: \&quot;-\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;due-date\&quot;, \&quot;display_name\&quot;: \&quot;Due Date\&quot;, \&quot;color\&quot;: \&quot;#9e78db\&quot;, \&quot;hotkey\&quot;: \&quot;u\&quot;, \&quot;type\&quot;: \&quot;date\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;discount\&quot;, \&quot;display_name\&quot;: \&quot;Discount\&quot;, \&quot;color\&quot;: \&quot;#383040\&quot;, \&quot;hotkey\&quot;: \&quot;c\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;shipping-charges\&quot;, \&quot;display_name\&quot;: \&quot;Shipping Charges\&quot;, \&quot;color\&quot;: \&quot;#20403e\&quot;, \&quot;hotkey\&quot;: \&quot;h\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;payment-addr\&quot;, \&quot;display_name\&quot;: \&quot;Payment Address\&quot;, \&quot;color\&quot;: \&quot;#bfeaff\&quot;, \&quot;hotkey\&quot;: \&quot;m\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_line\&quot;: true, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;levenshtein\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;description\&quot;, \&quot;display_name\&quot;: \&quot;Description\&quot;, \&quot;color\&quot;: \&quot;#bf60b9\&quot;, \&quot;hotkey\&quot;: \&quot;1\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;section\&quot;: \&quot;items\&quot;, \&quot;multi_line\&quot;: true, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;levenshtein\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;quantity\&quot;, \&quot;display_name\&quot;: \&quot;Quantity\&quot;, \&quot;color\&quot;: \&quot;#401036\&quot;, \&quot;hotkey\&quot;: \&quot;2\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;section\&quot;: \&quot;items\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: true, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;unit-price\&quot;, \&quot;display_name\&quot;: \&quot;Unit Price\&quot;, \&quot;color\&quot;: \&quot;#ffc480\&quot;, \&quot;hotkey\&quot;: \&quot;3\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;section\&quot;: \&quot;items\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: true, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;line-amount\&quot;, \&quot;display_name\&quot;: \&quot;Line Amount\&quot;, \&quot;color\&quot;: \&quot;#7f7920\&quot;, \&quot;hotkey\&quot;: \&quot;4\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;section\&quot;: \&quot;items\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: true, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;item-po-no\&quot;, \&quot;display_name\&quot;: \&quot;Customer Purchase Order Number - Item Level\&quot;, \&quot;color\&quot;: \&quot;#66bf00\&quot;, \&quot;hotkey\&quot;: \&quot;5\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;section\&quot;: \&quot;items\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;line-no\&quot;, \&quot;display_name\&quot;: \&quot;Line Number\&quot;, \&quot;color\&quot;: \&quot;#ff0000\&quot;, \&quot;hotkey\&quot;: \&quot;6\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;section\&quot;: \&quot;items\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;part-no\&quot;, \&quot;display_name\&quot;: \&quot;Part Number\&quot;, \&quot;color\&quot;: \&quot;#0066ff\&quot;, \&quot;hotkey\&quot;: \&quot;7\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;section\&quot;: \&quot;items\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;billing-vat-no\&quot;, \&quot;display_name\&quot;: \&quot;Billing VAT Number\&quot;, \&quot;color\&quot;: \&quot;#b1f23e\&quot;, \&quot;hotkey\&quot;: \&quot;g\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;shipping-date\&quot;, \&quot;display_name\&quot;: \&quot;Shipping Date\&quot;, \&quot;color\&quot;: \&quot;#2d8020\&quot;, \&quot;hotkey\&quot;: \&quot;r\&quot;, \&quot;type\&quot;: \&quot;date\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;vendor-email\&quot;, \&quot;display_name\&quot;: \&quot;Vendor Email Address\&quot;, \&quot;color\&quot;: \&quot;#ff0022\&quot;, \&quot;hotkey\&quot;: \&quot;w\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;levenshtein\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;bank-name\&quot;, \&quot;display_name\&quot;: \&quot;Bank Name\&quot;, \&quot;color\&quot;: \&quot;#403030\&quot;, \&quot;hotkey\&quot;: \&quot;z\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;levenshtein\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;bank-account-no\&quot;, \&quot;display_name\&quot;: \&quot;Bank Account Number\&quot;, \&quot;color\&quot;: \&quot;#4400ff\&quot;, \&quot;hotkey\&quot;: \&quot;x\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;iban\&quot;, \&quot;display_name\&quot;: \&quot;IBAN\&quot;, \&quot;color\&quot;: \&quot;#c79c7a\&quot;, \&quot;hotkey\&quot;: \&quot;]\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;swift-code\&quot;, \&quot;display_name\&quot;: \&quot;SWIFT Code\&quot;, \&quot;color\&quot;: \&quot;#50c8e9\&quot;, \&quot;hotkey\&quot;: \&quot;f\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;bank-addr\&quot;, \&quot;display_name\&quot;: \&quot;Bank Address\&quot;, \&quot;color\&quot;: \&quot;#b6d544\&quot;, \&quot;hotkey\&quot;: \&quot;j\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_line\&quot;: true, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;levenshtein\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;bank-routing-no\&quot;, \&quot;display_name\&quot;: \&quot;Bank Routing Number\&quot;, \&quot;color\&quot;: \&quot;#c8003b\&quot;, \&quot;hotkey\&quot;: \&quot;l\&quot;, \&quot;type\&quot;: \&quot;id-no\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;tax-rate\&quot;, \&quot;display_name\&quot;: \&quot;Tax Rate\&quot;, \&quot;color\&quot;: \&quot;#b43252\&quot;, \&quot;hotkey\&quot;: \&quot;k\&quot;, \&quot;type\&quot;: \&quot;number\&quot;, \&quot;multi_line\&quot;: false, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;exact_match\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}, {\&quot;name\&quot;: \&quot;shipping-method\&quot;, \&quot;display_name\&quot;: \&quot;Shipping Method\&quot;, \&quot;color\&quot;: \&quot;#b51cff\&quot;, \&quot;hotkey\&quot;: \&quot;,\&quot;, \&quot;type\&quot;: \&quot;string\&quot;, \&quot;multi_line\&quot;: true, \&quot;split_items\&quot;: false, \&quot;post_processing\&quot;: \&quot;first_span\&quot;, \&quot;scoring\&quot;: \&quot;levenshtein\&quot;, \&quot;hidden\&quot;: false, \&quot;multi_valued\&quot;: false}], \&quot;classification\&quot;: {\&quot;currency\&quot;: [{\&quot;name\&quot;: \&quot;USD\&quot;, \&quot;description\&quot;: \&quot;United States\&quot;}, {\&quot;name\&quot;: \&quot;EUR\&quot;, \&quot;description\&quot;: \&quot;Europe\&quot;}, {\&quot;name\&quot;: \&quot;RON\&quot;, \&quot;description\&quot;: \&quot;Romania\&quot;}, {\&quot;name\&quot;: \&quot;GBP\&quot;, \&quot;description\&quot;: \&quot;UK\&quot;}, {\&quot;name\&quot;: \&quot;INR\&quot;, \&quot;description\&quot;: \&quot;India\&quot;}, {\&quot;name\&quot;: \&quot;CAD\&quot;, \&quot;description\&quot;: \&quot;Canada\&quot;}, {\&quot;name\&quot;: \&quot;AUD\&quot;, \&quot;description\&quot;: \&quot;Australia\&quot;}, {\&quot;name\&quot;: \&quot;MYR\&quot;, \&quot;description\&quot;: \&quot;Malaysia\&quot;}, {\&quot;name\&quot;: \&quot;BRL\&quot;, \&quot;description\&quot;: \&quot;Brazil\&quot;}, {\&quot;name\&quot;: \&quot;JPY\&quot;, \&quot;description\&quot;: \&quot;Japan\&quot;}, {\&quot;name\&quot;: \&quot;SGD\&quot;, \&quot;description\&quot;: \&quot;Singapore\&quot;}, {\&quot;name\&quot;: \&quot;HNL\&quot;, \&quot;description\&quot;: \&quot;Honduras\&quot;}, {\&quot;name\&quot;: \&quot;NIO\&quot;, \&quot;description\&quot;: \&quot;Nicaragua\&quot;}, {\&quot;name\&quot;: \&quot;AED\&quot;, \&quot;description\&quot;: \&quot;United Arab Emirates\&quot;}, {\&quot;name\&quot;: \&quot;HKD\&quot;, \&quot;description\&quot;: \&quot;Hong Kong\&quot;}, {\&quot;name\&quot;: \&quot;CHF\&quot;, \&quot;description\&quot;: \&quot;Switzerland\&quot;}, {\&quot;name\&quot;: \&quot;DZD\&quot;, \&quot;description\&quot;: \&quot;Algeria\&quot;}, {\&quot;name\&quot;: \&quot;SEK\&quot;, \&quot;description\&quot;: \&quot;Sweden\&quot;}, {\&quot;name\&quot;: \&quot;NOK\&quot;, \&quot;description\&quot;: \&quot;Norway\&quot;}, {\&quot;name\&quot;: \&quot;PLN\&quot;, \&quot;description\&quot;: \&quot;Poland\&quot;}, {\&quot;name\&quot;: \&quot;DKK\&quot;, \&quot;description\&quot;: \&quot;Denmark\&quot;}, {\&quot;name\&quot;: \&quot;NZD\&quot;, \&quot;description\&quot;: \&quot;New Zeeland\&quot;}, {\&quot;name\&quot;: \&quot;RSD\&quot;, \&quot;description\&quot;: \&quot;Serbia\&quot;}, {\&quot;name\&quot;: \&quot;SAR\&quot;, \&quot;description\&quot;: \&quot;Saudi Arabia\&quot;}, {\&quot;name\&quot;: \&quot;ZAR\&quot;, \&quot;description\&quot;: \&quot;South Africa\&quot;}]}}, \&quot;release\&quot;: \&quot;ga\&quot;}&quot;}]}]}}">
+                      <p2:DataExtractionScope.Extractors>
+                        <p3:MachineLearningExtractor Endpoint="{x:Null}" ApiKey="cZwp08Tr07wBdvQXhu6+PJU2dU2btBGZCZepP41r2/OtiadinQQhttJy0xy2+LN2gi7KYXXd+fcbLzLg7QGw7w==" Configuration="{}{&quot;Endpoint&quot;:&quot;&quot;,&quot;ApiKey&quot;:&quot;cZwp08Tr07wBdvQXhu6+PJU2dU2btBGZCZepP41r2/OtiadinQQhttJy0xy2+LN2gi7KYXXd+fcbLzLg7QGw7w==&quot;,&quot;SelectedMLSkill&quot;:&quot;InvoiceMl&quot;,&quot;AvailableMLSkills&quot;:[&quot;InvoiceMl&quot;]}" DisplayName="Machine Learning Extractor" sap:VirtualizedContainerService.HintSize="283,193" sap2010:WorkflowViewState.IdRef="MachineLearningExtractor_1" PersistenceId="UIbaa6c120fd81413fb6511971412fcebd" RetryOnFailure="True" SelectedMLSkill="InvoiceMl" Timeout="100000" UseServerSideOCR="False">
+                          <p3:MachineLearningExtractor.AvailableMLSkills>
+                            <sc:BindingList x:TypeArguments="x:String" AllowEdit="True" AllowNew="False" AllowRemove="True" RaiseListChangedEvents="True">
+                              <x:String>InvoiceMl</x:String>
+                            </sc:BindingList>
+                          </p3:MachineLearningExtractor.AvailableMLSkills>
+                          <p3:MachineLearningExtractor.DocumentBounds>
+                            <InArgument x:TypeArguments="p5:ResultsDocumentBounds">
+                              <DelegateArgumentValue x:TypeArguments="p5:ResultsDocumentBounds">
+                                <DelegateInArgument x:TypeArguments="p5:ResultsDocumentBounds" Name="DocumentBounds" />
+                              </DelegateArgumentValue>
+                            </InArgument>
+                          </p3:MachineLearningExtractor.DocumentBounds>
+                          <p3:MachineLearningExtractor.DocumentObjectModel>
+                            <InArgument x:TypeArguments="p6:Document">
+                              <DelegateArgumentValue x:TypeArguments="p6:Document">
+                                <DelegateInArgument x:TypeArguments="p6:Document" Name="DocumentObjectModel" />
+                              </DelegateArgumentValue>
+                            </InArgument>
+                          </p3:MachineLearningExtractor.DocumentObjectModel>
+                          <p3:MachineLearningExtractor.DocumentPath>
+                            <InArgument x:TypeArguments="x:String">
+                              <DelegateArgumentValue x:TypeArguments="x:String">
+                                <DelegateInArgument x:TypeArguments="x:String" Name="DocumentPath" />
+                              </DelegateArgumentValue>
+                            </InArgument>
+                          </p3:MachineLearningExtractor.DocumentPath>
+                          <p3:MachineLearningExtractor.DocumentText>
+                            <InArgument x:TypeArguments="x:String">
+                              <DelegateArgumentValue x:TypeArguments="x:String">
+                                <DelegateInArgument x:TypeArguments="x:String" Name="DocumentText" />
+                              </DelegateArgumentValue>
+                            </InArgument>
+                          </p3:MachineLearningExtractor.DocumentText>
+                          <p3:MachineLearningExtractor.ExtractorDocumentType>
+                            <InArgument x:TypeArguments="p4:ExtractorDocumentType">
+                              <DelegateArgumentValue x:TypeArguments="p4:ExtractorDocumentType">
+                                <DelegateInArgument x:TypeArguments="p4:ExtractorDocumentType" Name="ExtractorDocumentType" />
+                              </DelegateArgumentValue>
+                            </InArgument>
+                          </p3:MachineLearningExtractor.ExtractorDocumentType>
+                          <p3:MachineLearningExtractor.ExtractorResult>
+                            <OutArgument x:TypeArguments="p4:ExtractorResult">
+                              <DelegateArgumentReference x:TypeArguments="p4:ExtractorResult">
+                                <DelegateOutArgument x:TypeArguments="p4:ExtractorResult" Name="ExtractorResult" />
+                              </DelegateArgumentReference>
+                            </OutArgument>
+                          </p3:MachineLearningExtractor.ExtractorResult>
+                          <p3:MachineLearningExtractor.PredictionId>
+                            <InArgument x:TypeArguments="x:String">
+                              <DelegateArgumentValue x:TypeArguments="x:String">
+                                <DelegateInArgument x:TypeArguments="x:String" Name="PredictionId" />
+                              </DelegateArgumentValue>
+                            </InArgument>
+                          </p3:MachineLearningExtractor.PredictionId>
+                        </p3:MachineLearningExtractor>
+                      </p2:DataExtractionScope.Extractors>
+                    </p2:DataExtractionScope>
+                    <If Condition="[extractionResults IsNot Nothing AndAlso extractionResults.ResultsDocument IsNot Nothing AndAlso extractionResults.ResultsDocument.Fields IsNot Nothing AndAlso extractionResults.ResultsDocument.Fields.Any()]" sap:VirtualizedContainerService.HintSize="506,1206" sap2010:WorkflowViewState.IdRef="If_3">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="504,789" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,115" sap2010:WorkflowViewState.IdRef="Assign_6">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Double">[confInvoiceNumber]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Double" xml:space="preserve">[(
+  From f In extractionResults.ResultsDocument.Fields
+  Where f.FieldId = "Finance.IncomingInvoice.Invoice.invoiceNumber"
+  Select If(f.Values.Any, f.Values(0).Confidence, 0.0)
+).FirstOrDefault()]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,115" sap2010:WorkflowViewState.IdRef="Assign_37">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[amountProbe]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[System.Text.RegularExpressions.Regex.Match(
+  ocrText,
+  "(?is)(gesamtbetrag|rechnungsbetrag|brutto|total|amount\s*due|invoice\s*total)[^\d]{0,60}((?:\d{1,3}(?:[.,]\d{3})+|\d+)(?:[.,]\d{2}))"
+).Groups(2).Value]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <If Condition="[String.IsNullOrWhiteSpace(amountProbe)]" sap:VirtualizedContainerService.HintSize="470,393" sap2010:WorkflowViewState.IdRef="If_7">
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,166" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_38">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[amountProbe]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String" xml:space="preserve">[(
+  From m In System.Text.RegularExpressions.Regex.Matches(
+     ocrText, "(?:\d{1,3}(?:[.,]\d{3})+|\d+)(?:[.,]\d{2})"
+  ).Cast(Of System.Text.RegularExpressions.Match)()
+  Select m.Value
+).DefaultIfEmpty("").LastOrDefault()]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,89" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,106" sap2010:WorkflowViewState.IdRef="Assign_7">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Double">[confTotal]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Double" xml:space="preserve">[(
+  From f In extractionResults.ResultsDocument.Fields
+  Where f.FieldId = "Finance.IncomingInvoice.Invoice.amount"
+  Select If(f.Values.Any, f.Values(0).Confidence, 0.0)
+).FirstOrDefault()]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="504,279" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="Assign_26">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Double">[confInvoiceNumber]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Double">0</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,105" sap2010:WorkflowViewState.IdRef="Assign_27">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Double">[confTotal]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Double">0</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <Assign sap:VirtualizedContainerService.HintSize="506,114" sap2010:WorkflowViewState.IdRef="Assign_39">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[forceValidation]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">[(New Random()).NextDouble() &lt;= 0.05]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="506,114" sap2010:WorkflowViewState.IdRef="Assign_8">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[needsValidation]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">[forceValidation OrElse (confInvoiceNumber &lt; 0.85) OrElse (confTotal &lt; 0.85 AndAlso String.IsNullOrWhiteSpace(amountProbe))]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <If Condition="[needsValidation]" sap:VirtualizedContainerService.HintSize="506,4100" sap2010:WorkflowViewState.IdRef="If_1">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="504,2644" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="Assign_10">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="s:DateTime">[valStart]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="s:DateTime">[Now]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,115" sap2010:WorkflowViewState.IdRef="Assign_42">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[tmpInvoiceNumber]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[(
+  From f In extractionResults.ResultsDocument.Fields
+  Where f.FieldId = "Finance.IncomingInvoice.Invoice.invoiceNumber"
+  Select If(f.Values.Any, f.Values(0).Value.ToString().Trim(), "")
+).FirstOrDefault()]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,115" sap2010:WorkflowViewState.IdRef="Assign_60">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[rawAmount]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[(From f In extractionResults.ResultsDocument.Fields
+             Where f.FieldId = "Finance.IncomingInvoice.Invoice.amount"
+             Select If(f.Values.Any(), f.Values(0).Value.ToString(), "0")
+            ).FirstOrDefault()]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <If Condition="[rawAmount.Contains(&quot;,&quot;)]" sap:VirtualizedContainerService.HintSize="470,468" sap2010:WorkflowViewState.IdRef="If_11">
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_70">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Double">[tmpAmount]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Double">[Double.Parse(rawAmount, System.Globalization.CultureInfo.GetCultureInfo("de-DE"))]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_71">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Double">[tmpAmount]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Double">[Double.Parse(rawAmount, System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="Assign_43">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="s:DateTime">[tmpInvoiceDate]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="s:DateTime">[If(extractionResults.ResultsDocument.Fields.Where(Function(field) field.FieldId = "Finance.IncomingInvoice.Invoice.invoiceDate").Any() AndAlso extractionResults.ResultsDocument.Fields.Where(Function(field) field.FieldId = "Finance.IncomingInvoice.Invoice.invoiceDate").First().Values.Any(), If(DateTime.TryParse(extractionResults.ResultsDocument.Fields.Where(Function(field) field.FieldId = "Finance.IncomingInvoice.Invoice.invoiceDate").First().Values(0).Value.ToString(), invoiceDate), invoiceDate, DateTime.MinValue), DateTime.MinValue)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <p:PresentValidationStation FieldsValidationConfidence="{x:Null}" AutomaticExtractionResults="[extractionResults]" DisplayMode="Classic" DisplayName="Present Validation Station" DocumentObjectModel="[documentObject]" DocumentPath="[CurrentFile.FullName]" DocumentText="[ocrText]" EnableRTLControls="False" sap:VirtualizedContainerService.HintSize="470,398" sap2010:WorkflowViewState.IdRef="PresentValidationStation_2" ShowOnlyRelevantPageRange="False" Taxonomy="[taxonomy]" ValidatedExtractionResults="[validatedResults]" />
+                          <Assign sap:VirtualizedContainerService.HintSize="470,115" sap2010:WorkflowViewState.IdRef="Assign_48">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[invoiceNumber]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[validatedResults.ResultsDocument.Fields.
+    First(Function(f) f.FieldId = "Finance.IncomingInvoice.Invoice.invoiceNumber").
+    Values(0).Value.ToString().Trim()]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,115" sap2010:WorkflowViewState.IdRef="Assign_64">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[rawAmount]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[validatedResults.ResultsDocument.Fields.
+  First(Function(f) f.FieldId = "Finance.IncomingInvoice.Invoice.amount").
+  Values(0).Value.ToString()]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <If Condition="[rawAmount.Contains(&quot;,&quot;)]" sap:VirtualizedContainerService.HintSize="470,468" sap2010:WorkflowViewState.IdRef="If_12">
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_73">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Double">[amount]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Double">[Double.Parse(rawAmount, Globalization.CultureInfo.GetCultureInfo("de-DE"))]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_74">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Double">[amount]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Double">[Double.Parse(rawAmount, Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="Assign_59">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[amountFormatted]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[amount.ToString("N2", New Globalization.CultureInfo("de-DE"))]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="Assign_50">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="s:DateTime">[invoiceDate]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="s:DateTime">[DateTime.Parse(validatedResults.ResultsDocument.Fields.First(Function(f) f.FieldId = "Finance.IncomingInvoice.Invoice.invoiceDate").Values(0).Value)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,115" sap2010:WorkflowViewState.IdRef="Assign_51">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Boolean">[hasBusinessError]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Boolean" xml:space="preserve">[Not (
+   String.Equals(tmpInvoiceNumber, invoiceNumber) _
+   AndAlso (Math.Abs(Math.Round(tmpAmount,2) - Math.Round(amount,2)) &lt;= 0.01) _
+   AndAlso (tmpInvoiceDate.Date = invoiceDate.Date)
+)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="Assign_11">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="s:DateTime">[valEnd]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="s:DateTime">[Now]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,105" sap2010:WorkflowViewState.IdRef="Assign_12">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Double">[reworkSeconds]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Double">[(valEnd - valStart).TotalSeconds]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="504,1318" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="Assign_46">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Boolean">[hasBusinessError]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="Assign_9">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="p5:ExtractionResult">[validatedResults]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="p5:ExtractionResult">[extractionResults]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,115" sap2010:WorkflowViewState.IdRef="Assign_52">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[invoiceNumber]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[validatedResults.ResultsDocument.Fields.
+  Where(Function(f) f.FieldId = "Finance.IncomingInvoice.Invoice.invoiceNumber").
+  FirstOrDefault().Values(0).Value]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="Assign_53">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="s:DateTime">[invoiceDate]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="s:DateTime">[CDate(validatedResults.ResultsDocument.Fields.First(Function(f) f.FieldId = "Finance.IncomingInvoice.Invoice.invoiceDate").Values(0).Value).Date]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="Assign_67">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[rawAmount]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[(From f In validatedResults.ResultsDocument.Fields Where f.FieldId = "Finance.IncomingInvoice.Invoice.amount" Select If(f.Values.Any(), f.Values(0).Value.ToString(), "0")).FirstOrDefault()]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <If Condition="[rawAmount.Contains(&quot;,&quot;)]" sap:VirtualizedContainerService.HintSize="470,468" sap2010:WorkflowViewState.IdRef="If_13">
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_75">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Double">[amount]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Double">[Double.Parse(rawAmount, New System.Globalization.CultureInfo("de-DE"))]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_76">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:Double">[amount]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:Double">[Double.Parse(rawAmount, System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="Assign_58">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[amountFormatted]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[amount.ToString("N2", New Globalization.CultureInfo("de-DE"))]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="470,105" sap2010:WorkflowViewState.IdRef="Assign_13">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Double">[reworkSeconds]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Double">0</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <Assign sap:VirtualizedContainerService.HintSize="506,114" sap2010:WorkflowViewState.IdRef="Assign_20">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="s:DateTime">[endTime]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="s:DateTime">[Now]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="506,114" sap2010:WorkflowViewState.IdRef="Assign_21">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Double">[durationSeconds]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Double">[(endTime - startTime).TotalSeconds]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="506,114" sap2010:WorkflowViewState.IdRef="Assign_19">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[isSTP]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">[Not needsValidation AndAlso reworkSeconds = 0]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() {&#xA;  CurrentFile.Name,&#xA;  startTime,&#xA;  endTime,&#xA;  durationSeconds,&#xA;  reworkSeconds,&#xA;  invoiceNumber,&#xA;  amountFormatted,&#xA;  invoiceDate,&#xA;  isSuccessful,&#xA;  hasBusinessError,   &#xA;  isSTP,&#xA;  exceptionMessage,&#xA;  &quot;IPA&quot;&#xA;}]" DataTable="[dt_Log]" DisplayName="ADR Success" sap:VirtualizedContainerService.HintSize="506,209" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                  </Sequence>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch1_1">
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540,497" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="506,114" sap2010:WorkflowViewState.IdRef="Assign_41">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[isSuccessful]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="506,114" sap2010:WorkflowViewState.IdRef="Assign_25">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[exceptionMessage]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[exception.Message]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() {&#xA;  CurrentFile.Name,&#xA;  startTime,&#xA;  endTime,&#xA;  durationSeconds,&#xA;  reworkSeconds,&#xA;  invoiceNumber,&#xA;  amount,&#xA;  invoiceDate,&#xA;  isSuccessful,&#xA;  hasBusinessError,     &#xA;  isSTP,&#xA;  exceptionMessage,&#xA;  &quot;IPA&quot;&#xA;}]" DataTable="[dt_Log]" DisplayName="ADR Error" sap:VirtualizedContainerService.HintSize="506,209" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                      </Sequence>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+                <TryCatch.Finally>
+                  <Sequence DisplayName="Endlich" sap:VirtualizedContainerService.HintSize="540,89" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </TryCatch.Finally>
+              </TryCatch>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEachFileX.Body>
+      </ui:ForEachFileX>
+      <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dt_Log]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="610,139" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Log" WorkbookPath="[logPath]" />
+    </Sequence>
+  </Sequence>
+</Activity>
