@@ -1,0 +1,44 @@
+﻿[
+  {
+    "DocumentTypeId": "Finance.IncomingInvoice.Invoice",
+    "DocumentTypeName": "Invoice",
+    "Entries": [
+      {
+        "EntryType": "SingleWord",
+        "Values": [
+          "Rechnung",
+          "Rechnungsnummer",
+          "Rechnungsdatum",
+          "Kundennummer",
+          "Gesamtbetrag",
+          "Zwischensumme",
+          "Steuer",
+          "MwSt",
+          "Zahlungsziel",
+          "Lieferdatum",
+          "Bestellnummer",
+          "Position",
+          "Artikel",
+          "Menge",
+          "Einzelpreis",
+          "Gesamtpreis"
+        ]
+      },
+      {
+        "EntryType": "SimpleWordSequence",
+        "Values": [
+          "Rechnung Nr",
+          "Datum der Rechnung",
+          "Kundennummer:",
+          "Gesamtbetrag:",
+          "inkl. MwSt",
+          "Zahlbar bis",
+          "Lieferdatum:",
+          "Bestellnummer:",
+          "Gesamtpreis EUR"
+        ]
+      }
+    ]
+  }
+]
+
